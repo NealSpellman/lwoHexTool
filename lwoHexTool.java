@@ -63,7 +63,7 @@ public class lwoHexTool
         
         else if (hexValue.length() == 2)
         {
-            String newValue = "00" + hexValue;
+            String newValue = hexValue + "00";
             System.out.println("Hex Value:" + newValue);
         }
         
