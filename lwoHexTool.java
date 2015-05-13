@@ -7,7 +7,6 @@ import java.util.Scanner;
  */
 public class lwoHexTool
 {
-    
     public static void hexArgument()
     {
         Scanner userInput = new Scanner(System.in);
@@ -43,6 +42,12 @@ public class lwoHexTool
     {
         String hexValue = Integer.toHexString(worldID); // the vanilla hex of the world ID
         
+        String space = " ";
+        String packetHeader = "53 05 00 02 00 00 00 00 ";
+        String packetEnding = " 89 F7 95 51 08 00 5D 04 4F 09 00 00 CD CC CC C1 CD CC E7 43 33 33 39 43 00 00 00 00";
+        // packetEnding is the "vanilla" world packet, in that the checksum within is not for all worlds
+        // this will need to be changed by the user or ignored if they are using a different generation method
+        
         // the way that LEGO Universe's packets work rests on the fact each world has an ID
         // this ID is converted to hex and swapped and sent via a world load packet to the client
         // this method will get the actual hex value for the world ID specified by the end user
@@ -52,12 +57,22 @@ public class lwoHexTool
         {
             String newValue = "0" + hexValue + "00";
             System.out.println("Hex Value: " + newValue);
+            System.out.println(packetHeader + newValue + packetEnding);
+            
+            String newA = newValue.substring(0, 2);
+            String newB = newValue.substring(2, 4);
+            System.out.println(packetHeader + newA + space + newB + packetEnding);
         }
         
         else if (hexValue.length() == 2)
         {
             String newValue = hexValue + "00";
             System.out.println("Hex Value: " + newValue);
+            System.out.println(packetHeader + newValue + packetEnding);
+            
+            String newA = newValue.substring(0, 2);
+            String newB = newValue.substring(2, 4);
+            System.out.println(packetHeader + newA + space + newB + packetEnding);
         }
         
         else if (hexValue.length() == 3)
@@ -68,6 +83,10 @@ public class lwoHexTool
             //System.out.println(halfB); - for debugging
             String newValue = halfB + halfA;
             System.out.println("Hex Value: " + newValue);
+            
+            String newA = newValue.substring(0, 2);
+            String newB = newValue.substring(2, 4);
+            System.out.println(packetHeader + newA + space + newB + packetEnding);
         }
         
         else if (hexValue.length() == 4)
@@ -76,6 +95,10 @@ public class lwoHexTool
             String halfB = hexValue.substring(2, 4);
             String newValue = halfB + halfA;
             System.out.println("Hex Value: " + newValue);
+            
+            String newA = newValue.substring(0, 2);
+            String newB = newValue.substring(2, 4);
+            System.out.println(packetHeader + newA + space + newB + packetEnding);
         }
     }
 
@@ -88,7 +111,6 @@ public class lwoHexTool
         if (choiceA == 1)
         {
             printIDs();
-            
             hexArgument();
         }
         
