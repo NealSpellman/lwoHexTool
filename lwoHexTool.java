@@ -7,24 +7,15 @@ import java.util.Scanner;
  */
 public class lwoHexTool
 {
+    
     public static void hexArgument()
     {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Get the hex value for a world?");
+        
+        System.out.println("Enter the desired world ID.");
             
-        int choiceHexA = userInput.nextInt();
-            
-        if (choiceHexA == 1)
-        {
-            System.out.println("Enter the desired world ID.");
-            
-            int worldChoice = userInput.nextInt();
-            printHex(worldChoice);
-        }
-        if (choiceHexA == 2)
-        {
-            System.out.println("You can close the program now.");
-        }
+        int worldChoice = userInput.nextInt();
+        printHex(worldChoice);
     }
     
     public static void printIDs()
@@ -55,16 +46,18 @@ public class lwoHexTool
         // the way that LEGO Universe's packets work rests on the fact each world has an ID
         // this ID is converted to hex and swapped and sent via a world load packet to the client
         // this method will get the actual hex value for the world ID specified by the end user
+        
+        // once you get your ID, you need to insert it into the world packet or your code
         if (hexValue.length() == 1)
         {
-            String newValue = "000" + hexValue;
-            System.out.println("Hex Value:" + newValue);
+            String newValue = "0" + hexValue + "00";
+            System.out.println("Hex Value: " + newValue);
         }
         
         else if (hexValue.length() == 2)
         {
             String newValue = hexValue + "00";
-            System.out.println("Hex Value:" + newValue);
+            System.out.println("Hex Value: " + newValue);
         }
         
         else if (hexValue.length() == 3)
@@ -74,7 +67,7 @@ public class lwoHexTool
             String halfB = hexValue.substring(1, 3);
             //System.out.println(halfB); - for debugging
             String newValue = halfB + halfA;
-            System.out.println("Hex Value:" + newValue);
+            System.out.println("Hex Value: " + newValue);
         }
         
         else if (hexValue.length() == 4)
@@ -82,14 +75,14 @@ public class lwoHexTool
             String halfA = hexValue.substring(0, 2);
             String halfB = hexValue.substring(2, 4);
             String newValue = halfB + halfA;
-            System.out.println("Hex Value:" + newValue);
+            System.out.println("Hex Value: " + newValue);
         }
     }
 
     public static void main(String[] args)
     {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("lwoHexTool - NS - Build 5/12/15");
+        System.out.println("lwoHexTool - NS - Build 5/13/15");
         System.out.println("Print standard world IDs?");
         int choiceA = userInput.nextInt();
         if (choiceA == 1)
