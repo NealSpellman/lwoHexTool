@@ -57,22 +57,20 @@ public class lwoHexTool
         {
             String newValue = "0" + hexValue + "00";
             System.out.println("Hex Value: " + newValue);
-            System.out.println(packetHeader + newValue + packetEnding);
             
             String newA = newValue.substring(0, 2);
             String newB = newValue.substring(2, 4);
-            System.out.println(packetHeader + newA + space + newB + packetEnding);
+            System.out.println("Packet: " + packetHeader + newA + space + newB + packetEnding);
         }
         
         else if (hexValue.length() == 2)
         {
             String newValue = hexValue + "00";
             System.out.println("Hex Value: " + newValue);
-            System.out.println(packetHeader + newValue + packetEnding);
             
             String newA = newValue.substring(0, 2);
             String newB = newValue.substring(2, 4);
-            System.out.println(packetHeader + newA + space + newB + packetEnding);
+            System.out.println("Packet: " + packetHeader + newA + space + newB + packetEnding);
         }
         
         else if (hexValue.length() == 3)
@@ -86,7 +84,7 @@ public class lwoHexTool
             
             String newA = newValue.substring(0, 2);
             String newB = newValue.substring(2, 4);
-            System.out.println(packetHeader + newA + space + newB + packetEnding);
+            System.out.println("Packet: " + packetHeader + newA + space + newB + packetEnding);
         }
         
         else if (hexValue.length() == 4)
@@ -98,7 +96,7 @@ public class lwoHexTool
             
             String newA = newValue.substring(0, 2);
             String newB = newValue.substring(2, 4);
-            System.out.println(packetHeader + newA + space + newB + packetEnding);
+            System.out.println("Packet: " + packetHeader + newA + space + newB + packetEnding);
         }
     }
 
