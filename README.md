@@ -3,13 +3,13 @@ lwoHexTool README
 ------------------------------------------------------------------------
 Author: https://github.com/NealSpellman
 
-Version Number: 1.5
+Version Number: 1.6
 
 ------------------------------------------------------------------------
 HOW TO USE
 ------------------------------------------------------------------------
 1. Download the repository as a zip. Unzip once complete.
-2. Compile either one of the .java files.
+2. Compile either one of the .java files or use the .cpp file.
 3. Run them and follow the instructions on screen to get your ID.
 
 ------------------------------------------------------------------------
